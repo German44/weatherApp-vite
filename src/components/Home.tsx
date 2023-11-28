@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useState, ChangeEvent, FormEvent } from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import CardWeather from "./CardWeather";
 import ButtonSearch from './ButtonSearch';
@@ -57,6 +57,7 @@ export default function Home() {
                                         </InputAdornment>),
                                 }} />
                             <ButtonSearch getWeather={getWeather} loading={loading} />
+                         
                         </div>
                     </form>
                 </header>
