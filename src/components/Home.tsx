@@ -1,11 +1,11 @@
-"use client";
+
 import axios from 'axios';
 import { useState, ChangeEvent, FormEvent } from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import { Button, TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import CardWeather from "./CardWeather";
 import ButtonSearch from './ButtonSearch';
+import { TextField } from '@mui/material';
 
 interface WeatherData {
     main?: {
@@ -43,23 +43,20 @@ export default function Home() {
                 {/* Input and title */}
                 <header className="w-full flex flex-wrap items-center justify-between p-8">
                     <h1 className="text-3xl font-semibold">Weather App.</h1>
-                    <form onSubmit={getWeather}>
-                        <div className="flex items-center gap-5">
-                            <TextField
-                                value={city}
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
-                                label="Ciudad"
-                                variant="standard"
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <SearchIcon />
-                                        </InputAdornment>),
-                                }} />
-                            <ButtonSearch getWeather={getWeather} loading={loading} />
-                         
-                        </div>
-                    </form>
+                    <div className="flex items-center gap-5">
+                        <TextField
+                            value={city}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
+                            label="Ciudad"
+                            variant="standard"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchIcon />
+                                    </InputAdornment>),
+                            }} />
+                        <ButtonSearch functionWeather={getWeather} loading={loading} />
+                    </div>
                 </header>
                 <div className="w-3/4 bg-white/10 backdrop-blur-lg p-4">
                     {weather.main && <CardWeather data={weather} />}

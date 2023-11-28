@@ -1,18 +1,17 @@
-"use client"
 import { Button } from "@mui/material";
+import React from "react";
 
 interface ButtonSearchProps {
-  getWeather: () => void;
+  functionWeather: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   loading: boolean;
 }
 
-
-function ButtonSearch({ getWeather, loading }) {
+function ButtonSearch({ functionWeather, loading }: ButtonSearchProps) {
   return (
-    <Button variant="contained" onClick={getWeather} disabled={loading}>
+    <Button variant="contained" onClick={functionWeather} disabled={loading}>
       {loading ? "Loading..." : "Buscar"}
     </Button>
-  )
+  );
 }
 
-export default ButtonSearch
+export default ButtonSearch;
