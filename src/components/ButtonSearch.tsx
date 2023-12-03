@@ -1,12 +1,14 @@
+import { FormEvent } from "react";
 import { Button } from "@mui/material";
-import React from "react";
 
-interface ButtonSearchProps {
-  functionWeather: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+// Replace `WeatherData` with the actual type of the weather data
+interface Props {
+  functionWeather: (e: FormEvent) => void;
   loading: boolean;
 }
 
-function ButtonSearch({ functionWeather, loading }: ButtonSearchProps) {
+
+function ButtonSearch({ functionWeather, loading }: Props) {
   return (
     <Button variant="contained" onClick={functionWeather} disabled={loading}>
       {loading ? "Loading..." : "Buscar"}

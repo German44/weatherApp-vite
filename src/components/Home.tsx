@@ -21,7 +21,7 @@ export default function Home() {
     const [weather, setWeather] = useState<WeatherData>({});
     const [loading, setLoading] = useState<boolean>(false);
 
-    const getWeather = async (e: FormEvent<HTMLFormElement>) => {
+    const getWeather = async (e: FormEvent) => {
         e.preventDefault();
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_WEATHER_KEY}`;
         setLoading(true);
